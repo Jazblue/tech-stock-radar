@@ -1,9 +1,9 @@
 {
   "status": "ok",
-  "updated_at": "2026-10-20T17:59:23+01:00",
+  "updated_at": "2026-10-20T18:20:34+01:00",
   "market": "London Stock Exchange",
-  "ai_summary": "Local Granite summary unavailable for this run. Price movements below were calculated by Python. Check that Ollama is running and the model 'granite4:3b' is installed. No AI-generated market interpretation has been substituted.",
-  "summary_source": "Python fallback (timed out)",
+  "ai_summary": "- Strongest riser: Dotdigital Group (DOTD.L), +1.452%.\n- Strongest faller: Filtronic (FTC.L), -8.514%.\n- Valid share records: 30. (Note: This is not investment advice.)\n\nVerified strongest riser: dotdigital Group (DOTD.L) +1.452%.\nVerified strongest faller: Filtronic (FTC.L) -8.514%.\nThis is a watchlist snapshot, not investment advice.",
+  "summary_source": "Local Ollama model: granite4:3b",
   "note": "30 of 31 quotes retrieved. Prices are daily closing data and may be delayed. Not investment advice.",
   "stocks": [
     {

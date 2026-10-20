@@ -97,50 +97,86 @@ def fetch_stock(item: dict) -> dict:
     return result
 
 
-def granite_summary(stocks: list[dict]) -> tuple[str, str]:
-    valid = [s for s in stocks if s["status"] == "ok" and s["change_pct"] is not None]
-    if not valid:
-        return "No verified daily price changes were available for a market summary.", "Python fallback"
 
-    movers = sorted(valid, key=lambda s: s["change_pct"])
-    facts = [
-        {"ticker": s["ticker"], "company": s["name"], "price_gbp": s["price_gbp"], "daily_change_pct": s["change_pct"]}
-        for s in valid
+def granite_summary(stocks: list[dict]) -> tuple[str, str]:
+    valid = [
+        s for s in stocks
+        if s["status"] == "ok" and s["change_pct"] is not None
     ]
+    if not valid:
+        return (
+            "No verified daily price changes were available for a market summary.",
+            "Python fallback",
+        )
+
+    # Python calculates the rankings from the actual fetched figures.
+    riser = max(valid, key=lambda s: s["change_pct"])
+    faller = min(valid, key=lambda s: s["change_pct"])
+
     prompt = (
-        "Write a concise UK technology-share market briefing in 3 short bullet points. "
-        "Use only the JSON facts supplied. Mention the strongest riser and faller if clear. "
-        "Do not invent facts, causes, news, forecasts, or prices. Do not recommend buying or selling. "
-        "Say that this is a watchlist snapshot, not investment advice. JSON facts: "
-        + json.dumps(facts, ensure_ascii=False)
+        "Write exactly 3 concise bullet points for a UK technology-share "
+        "watchlist snapshot. Use only these verified facts. "
+        "Do not invent news, causes, forecasts, or other prices. "
+        "Do not calculate or change the rankings. "
+        "Mention the strongest riser and faller exactly as supplied. "
+        "State that this is not investment advice.\n\n"
+        f"Strongest riser: {riser['name']} ({riser['ticker']}), "
+        f"{riser['change_pct']:+.3f}%.\n"
+        f"Strongest faller: {faller['name']} ({faller['ticker']}), "
+        f"{faller['change_pct']:+.3f}%.\n"
+        f"Valid share records: {len(valid)}."
     )
+
     payload = json.dumps({
         "model": OLLAMA_MODEL,
         "prompt": prompt,
         "stream": False,
-        "options": {"temperature": 0.2, "num_predict": 220},
+        "options": {
+            "temperature": 0,
+            "num_predict": 120,
+        },
     }).encode("utf-8")
+
     request = urllib.request.Request(
         OLLAMA_URL,
         data=payload,
         headers={"Content-Type": "application/json"},
         method="POST",
     )
+
     try:
         with urllib.request.urlopen(request, timeout=120) as response:
             result = json.loads(response.read().decode("utf-8"))
-        summary = str(result.get("response", "")).strip()
-        if summary:
-            return summary, "Local Ollama model: " + OLLAMA_MODEL
-        raise ValueError("Ollama returned an empty summary")
-    except (urllib.error.URLError, TimeoutError, ValueError, json.JSONDecodeError) as exc:
-        return (
-            "Local Granite summary unavailable for this run. Price movements below were calculated by Python. "
-            "Check that Ollama is running and the model '" + OLLAMA_MODEL + "' is installed. "
-            "No AI-generated market interpretation has been substituted.",
-            "Python fallback (" + str(exc)[:100] + ")",
-        )
 
+        summary = str(result.get("response", "")).strip()
+        if not summary:
+            raise ValueError("Ollama returned an empty summary")
+
+        # Always append the rankings calculated by Python, not by the model.
+        verified = (
+            f"Verified strongest riser: {riser['name']} ({riser['ticker']}) "
+            f"{riser['change_pct']:+.3f}%.\n"
+            f"Verified strongest faller: {faller['name']} ({faller['ticker']}) "
+            f"{faller['change_pct']:+.3f}%.\n"
+            "This is a watchlist snapshot, not investment advice."
+        )
+        return summary + "\n\n" + verified, "Local Ollama model: " + OLLAMA_MODEL
+
+    except (
+        urllib.error.URLError,
+        TimeoutError,
+        ValueError,
+        json.JSONDecodeError,
+    ) as exc:
+        # Still provide the accurate rankings if Granite is unavailable.
+        fallback = (
+            f"Verified strongest riser: {riser['name']} ({riser['ticker']}) "
+            f"{riser['change_pct']:+.3f}%.\n"
+            f"Verified strongest faller: {faller['name']} ({faller['ticker']}) "
+            f"{faller['change_pct']:+.3f}%.\n"
+            "This is a watchlist snapshot, not investment advice."
+        )
+        return fallback, "Python fallback (" + str(exc)[:100] + ")"
 
 def main() -> int:
     watchlist = read_json(WATCHLIST, [])
