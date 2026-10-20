@@ -1,0 +1,9 @@
+{
+  "status": "not_yet_run",
+  "updated_at": null,
+  "market": "London Stock Exchange",
+  "ai_summary": "The dashboard is ready for its first data collection. Run scripts/update_prices.py on your Windows PC to fetch quotes and request a local Granite summary.",
+  "summary_source": "not run yet",
+  "note": "No live or historical quotes are included in this starter file. Prices will appear after the first successful update.",
+  "stocks": []
+}

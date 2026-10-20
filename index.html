@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daily dashboard for UK-listed technology shares, with price changes and a locally generated AI summary.">
+  <title>UK Tech Stock Radar</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand-mark" aria-hidden="true">TSR</div>
+    <div>
+      <p class="eyebrow">LONDON MARKET · DAILY TRACKER</p>
+      <h1>UK Tech Stock Radar</h1>
+      <p class="subtitle">A clear daily view of UK-listed technology shares.</p>
+    </div>
+    <span class="market-pill">LSE watchlist</span>
+  </header>
+
+  <main>
+    <section class="hero-grid" aria-label="Market overview">
+      <article class="panel summary-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">LOCAL AI BRIEFING</p>
+            <h2>Today's market read</h2>
+          </div>
+          <span class="ai-tag">Granite · local</span>
+        </div>
+        <p id="ai-summary" class="summary-text">Waiting for the first local price collection. Run scripts/update_prices.py on your Windows PC to populate this dashboard.</p>
+        <p id="summary-meta" class="muted small">No data collected yet</p>
+      </article>
+      <article class="panel market-panel">
+        <p class="eyebrow">WATCHLIST SNAPSHOT</p>
+        <div class="metric"><span id="tracked-count">30</span><span class="metric-unit">shares tracked</span></div>
+        <div class="metric-row">
+          <div><span class="metric-label">Risers</span><strong id="riser-count">—</strong></div>
+          <div><span class="metric-label">Fallers</span><strong id="faller-count">—</strong></div>
+          <div><span class="metric-label">Last update</span><strong id="updated-at">Waiting</strong></div>
+        </div>
+        <p class="disclaimer">Daily data, not a live trading feed. Not investment advice.</p>
+      </article>
+    </section>
+
+    <section class="movers-grid">
+      <article class="panel mover-panel">
+        <div class="section-heading"><div><p class="eyebrow">TOP MOVERS</p><h2>Biggest risers</h2></div><span class="trend up">▲</span></div>
+        <ol id="risers-list" class="mover-list"><li class="empty">Price data will appear after the first update.</li></ol>
+      </article>
+      <article class="panel mover-panel">
+        <div class="section-heading"><div><p class="eyebrow">TOP MOVERS</p><h2>Biggest fallers</h2></div><span class="trend down">▼</span></div>
+        <ol id="fallers-list" class="mover-list"><li class="empty">Price data will appear after the first update.</li></ol>
+      </article>
+    </section>
+
+    <section class="panel table-panel">
+      <div class="section-heading table-heading">
+        <div><p class="eyebrow">THE WATCHLIST</p><h2>UK technology shares</h2><p class="muted">Prices in GBP; LSE quotes may originate in pence and are converted for display.</p></div>
+        <label class="search-wrap"><span class="sr-only">Search shares</span><input id="search" type="search" placeholder="Search company or ticker…" autocomplete="off"></label>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th scope="col">Company</th><th scope="col">Ticker</th><th scope="col" class="numeric">Last price</th><th scope="col" class="numeric">Daily change</th><th scope="col">Status</th></tr></thead>
+          <tbody id="stocks-body"><tr><td colspan="5" class="empty">No prices yet. Run the Python update script on your PC.</td></tr></tbody>
+        </table>
+      </div>
+      <p id="data-note" class="muted small">Market data has not been collected yet.</p>
+    </section>
+  </main>
+
+  <footer>
+    <span>UK Tech Stock Radar</span>
+    <span>Data via Yahoo Finance / yfinance · Local summary via Ollama Granite</span>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
