@@ -2044,5 +2044,191 @@
         "change_pct": 0.0
       }
     ]
+  },
+  {
+    "date": "2026-11-04",
+    "updated_at": "2026-11-04T17:28:50+00:00",
+    "stocks": [
+      {
+        "ticker": "SGE.L",
+        "name": "Sage Group",
+        "price_gbp": 11.89,
+        "change_pct": 2.588
+      },
+      {
+        "ticker": "CCC.L",
+        "name": "Computacenter",
+        "price_gbp": 48.24,
+        "change_pct": -4.381
+      },
+      {
+        "ticker": "SCT.L",
+        "name": "Softcat",
+        "price_gbp": 16.25,
+        "change_pct": 0.806
+      },
+      {
+        "ticker": "KNOS.L",
+        "name": "Kainos Group",
+        "price_gbp": 12.72,
+        "change_pct": 0.474
+      },
+      {
+        "ticker": "BYIT.L",
+        "name": "Bytes Technology Group",
+        "price_gbp": 4.536,
+        "change_pct": 0.8
+      },
+      {
+        "ticker": "RPI.L",
+        "name": "Raspberry Pi Holdings",
+        "price_gbp": 5.19,
+        "change_pct": -0.384
+      },
+      {
+        "ticker": "OXIG.L",
+        "name": "Oxford Instruments",
+        "price_gbp": 25.38,
+        "change_pct": -2.309
+      },
+      {
+        "ticker": "RSW.L",
+        "name": "Renishaw",
+        "price_gbp": 49.8,
+        "change_pct": -5.503
+      },
+      {
+        "ticker": "TRCS.L",
+        "name": "Tracsis",
+        "price_gbp": 3.125,
+        "change_pct": -0.794
+      },
+      {
+        "ticker": "IQE.L",
+        "name": "IQE",
+        "price_gbp": 0.323,
+        "change_pct": -2.269
+      },
+      {
+        "ticker": "OMG.L",
+        "name": "Oxford Metrics",
+        "price_gbp": 0.376,
+        "change_pct": -1.053
+      },
+      {
+        "ticker": "DOTD.L",
+        "name": "dotdigital Group",
+        "price_gbp": 0.554,
+        "change_pct": 2.783
+      },
+      {
+        "ticker": "MIDW.L",
+        "name": "Midwich Group",
+        "price_gbp": 1.52,
+        "change_pct": -5.0
+      },
+      {
+        "ticker": "BGO.L",
+        "name": "Bango",
+        "price_gbp": 0.785,
+        "change_pct": 0.641
+      },
+      {
+        "ticker": "ACSO.L",
+        "name": "accesso Technology Group",
+        "price_gbp": 3.14,
+        "change_pct": 0.0
+      },
+      {
+        "ticker": "TIG.L",
+        "name": "Team Internet Group",
+        "price_gbp": 0.34,
+        "change_pct": 3.03
+      },
+      {
+        "ticker": "NET.L",
+        "name": "Netcall",
+        "price_gbp": 1.315,
+        "change_pct": -0.379
+      },
+      {
+        "ticker": "FTC.L",
+        "name": "Filtronic",
+        "price_gbp": 2.48,
+        "change_pct": 11.712
+      },
+      {
+        "ticker": "CNC.L",
+        "name": "Concurrent Technologies",
+        "price_gbp": 2.88,
+        "change_pct": -2.373
+      },
+      {
+        "ticker": "VLX.L",
+        "name": "Volex",
+        "price_gbp": 5.49,
+        "change_pct": -3.004
+      },
+      {
+        "ticker": "TTG.L",
+        "name": "TT Electronics",
+        "price_gbp": 1.79,
+        "change_pct": -4.787
+      },
+      {
+        "ticker": "CWR.L",
+        "name": "Ceres Power",
+        "price_gbp": 2.832,
+        "change_pct": 3.736
+      },
+      {
+        "ticker": "ITM.L",
+        "name": "ITM Power",
+        "price_gbp": 0.78,
+        "change_pct": 0.322
+      },
+      {
+        "ticker": "ONT.L",
+        "name": "Oxford Nanopore Technologies",
+        "price_gbp": 2.104,
+        "change_pct": -2.502
+      },
+      {
+        "ticker": "CRW.L",
+        "name": "Craneware",
+        "price_gbp": 10.8,
+        "change_pct": 3.053
+      },
+      {
+        "ticker": "SRT.L",
+        "name": "SRT Marine Systems",
+        "price_gbp": 0.69,
+        "change_pct": -1.429
+      },
+      {
+        "ticker": "GAMA.L",
+        "name": "Gamma Communications",
+        "price_gbp": 10.97,
+        "change_pct": 0.0
+      },
+      {
+        "ticker": "GBG.L",
+        "name": "GB Group",
+        "price_gbp": 1.642,
+        "change_pct": 2.242
+      },
+      {
+        "ticker": "NCC.L",
+        "name": "NCC Group",
+        "price_gbp": 1.652,
+        "change_pct": -1.314
+      },
+      {
+        "ticker": "ELCO.L",
+        "name": "Eleco",
+        "price_gbp": 2.31,
+        "change_pct": 0.0
+      }
+    ]
   }
 ]
