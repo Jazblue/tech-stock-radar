@@ -1,9 +1,9 @@
 {
   "status": "ok",
-  "updated_at": "2026-11-10T17:26:49+00:00",
+  "updated_at": "2026-11-12T07:39:54+00:00",
   "market": "London Stock Exchange",
-  "ai_summary": "- Strongest riser: Bango (BGO.L), +17.576%.\n- Strongest faller: Ceres Power (CWR.L), -4.621%.\n- Valid share records: 30. (Note: This is not investment advice.)\n\nVerified strongest riser: Bango (BGO.L) +17.576%.\nVerified strongest faller: Ceres Power (CWR.L) -4.621%.\nThis is a watchlist snapshot, not investment advice.",
-  "summary_source": "Local Ollama model: granite4:3b",
+  "ai_summary": "Verified strongest riser: Bango (BGO.L) +17.576%.\nVerified strongest faller: Ceres Power (CWR.L) -4.621%.\nThis is a watchlist snapshot, not investment advice.",
+  "summary_source": "Python fallback (HTTP Error 500: Internal Server Error)",
   "note": "30 of 31 quotes retrieved. Prices are daily closing data and may be delayed. Not investment advice.",
   "stocks": [
     {
